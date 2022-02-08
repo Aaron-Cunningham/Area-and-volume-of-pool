@@ -6,17 +6,16 @@ import java.util.Scanner;
 public class Main {
 
     private static final double PI = 3.14;
-    private static Scanner sc = new Scanner(System.in);
-    private static double length, width, radius, height, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, crossSection;
+    private static Scanner sc = new Scanner(System.in);//input scanner
+    private static double length, width, radius, height, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth;//variables for program
     private static String name;//name of person
     private static int option;//menu option
 
     public static void main(String[] args) {
-        //call the menu method
-        menu();
-        //rectangleVolume();
-        //cylinderInternalSurfaceArea();
-        //System.out.println("m\u00B3");
+
+        //menu();
+        cylinderVolume();
+
     }
 
     private static void menu() {
@@ -26,6 +25,7 @@ public class Main {
         while (option == 0) {
             System.out.println("Welcome to pool calculator");
             getName();//Get the name of the user
+            
             System.out.println("Select 1 to re-enter name \n"
                     + "Select 2 for Rectangular pool \n"
                     + "Select 3 for Cylinderical pool\n"
@@ -41,6 +41,7 @@ public class Main {
                     rectangleInternalSurfaceArea();
                     break;
                 case 3:
+                    cylinderVolume();
                     cylinderInternalSurfaceArea();
                     break;
                 case 4:
@@ -54,10 +55,10 @@ public class Main {
             }//end of switch
 
         }//end of while loop
-        
+
         menu();//puts the method in a loop even after selection until exit
-            
-    }
+
+    }//end of menu method
 
     private static void getName() {
         System.out.println("Please input your name");
@@ -65,13 +66,13 @@ public class Main {
     }
 
     private static void rectangleVolume() {
-        System.out.println("Input shallow depth of the pool");
+        System.out.println("Input shallow depth of the pool in meters");
         shallowDepth = sc.nextDouble();
-        System.out.println("Input deep depth of the pool");
+        System.out.println("Input deep depth of the pool in meter");
         deepDepth = sc.nextDouble();
-        System.out.println("Input the width of the pool");
+        System.out.println("Input the width of the pool meter");
         width = sc.nextDouble();
-        System.out.println("Input the length of the pool");
+        System.out.println("Input the length of the pool meter");
         length = sc.nextDouble();
 
         poolVolume = (deepDepth + shallowDepth) * width * length / 2;
@@ -82,24 +83,28 @@ public class Main {
     }
 
     private static void rectangleInternalSurfaceArea() {
-        //Rectangular or Freeform Shapes: L X W X 1.6 = Square Meters of Interior Surface
-        // = 2x (2x4 + 2x2 + 4x2) = 40m^2
-        //internalSurfaceArea = (2 * (length * width) + (width * shallowDepth));
 
-        internalSurfaceArea = length * width * 1.6;
+        internalSurfaceArea = length * width * 1.6;//Works out the internal surface area
         System.out.println("The internal surface area is " + internalSurfaceArea + "m\u00B2");
+        System.out.println(" ");//leaves a space between the program when it loops again
 
+    }
+
+    private static void cylinderVolume() {
+        System.out.println("Enter diameter of the pool in meters");
+        diameter = sc.nextDouble();
+        System.out.println("Enter the shallow depth in meters");
+        shallowDepth = sc.nextDouble();
+        System.out.println("Enter the deep depth in meters");
+        deepDepth = sc.nextDouble();
+        averageDepth = (shallowDepth + deepDepth) / 2;
+        radius = diameter /2;
+        poolVolume = PI * radius * radius * averageDepth;
+        System.out.println(poolVolume);
     }
 
     private static void cylinderInternalSurfaceArea() {
 
     }
 
-    private static void cylinderVolume() {
-
-    }
-
-    private static void outputMethodRectangle() {
-
-    }
 }
