@@ -8,13 +8,16 @@ public class Main {
 
     private static final double PI = 3.14;
     private static Scanner sc = new Scanner(System.in);
-    private static double length, width, radius, height, shallowDepth, deepDepth, poolVolume, internalSurfaceArea;
+    private static double length, width, radius, height, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, crossSection;
     private static String name;//name of person
     private static int option;//menu option
 
     public static void main(String[] args) {
         //call the menu method
-        menu();
+        //menu();
+        rectangleVolume();
+        cylinderInternalSurfaceArea();
+        //System.out.println("m\u00B3");
     }
 
     private static void menu() {
@@ -35,7 +38,7 @@ public class Main {
             }//end of if statement
             switch (option) {
                 case 2:
-                    rectangleInternalSurfaceArea();
+                    rectangleVolume();
                     break;
                 case 3:
                     cylinderInternalSurfaceArea();
@@ -55,7 +58,7 @@ public class Main {
         menu();//puts the method in a loop even after selection until exit
 
     }
-
+ 
     private static void getName() {
         System.out.println("Please input your name");
         name = sc.nextLine();
@@ -72,11 +75,26 @@ public class Main {
     }
 
     private static void rectangleVolume() {
-
+        System.out.println("Input shallow depth of the pool");
+        shallowDepth = 3;
+        System.out.println("Input deep depth of the pool");
+        deepDepth = 1;
+        System.out.println("Input the width of the pool");
+        width = 11;
+        System.out.println("Input the length of the pool");
+        length = 11;
+        
+        poolVolume = (deepDepth + shallowDepth) * width * length / 2;
+        
+        
+        System.out.println("The volume of the pool is " + poolVolume + "m\u00B3");
+        
+        
+        
     }
 
     private static void cylinderInternalSurfaceArea() {
-
+        
     }
 
     private static void cylinderVolume() {
