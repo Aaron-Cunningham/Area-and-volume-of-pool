@@ -6,25 +6,22 @@ public class Main {
 
     private static final double PI = 3.14;
     private static Scanner sc = new Scanner(System.in);//input scanner
-    private static double length, width, radius, height, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth;//variables for program
-    private static String name;//name of person
+    private static double length, width, radius, sideHeightEqual, floorArea, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth;//variables for program
+    private static String firstName, lastName;//name of person
     private static int option;//menu option
 
     public static void main(String[] args) {
-
+        getName();
         menu();
-        //cylinderVolume();
 
     }
 
     private static void menu() {
-      getName();
+
         option = 0;
-        //getName();//Get the name of the user
+
         while (option == 0) {
-            
             System.out.println("Welcome to pool calculator");
-            
             System.out.println("Select 1 to re-enter name \n"
                     + "Select 2 for Rectangular pool \n"
                     + "Select 3 for Cylinderical pool\n"
@@ -32,7 +29,7 @@ public class Main {
 
             option = sc.nextInt();
             if (option == 1) {
-                menu();//This method will run if option1 is picked
+                getName();//This method will run if option1 is picked
             }//end of if statement
             switch (option) {
                 case 2:
@@ -47,20 +44,21 @@ public class Main {
                     System.out.println("You've now exited the program");
                     System.exit(0);//This method will run if opetion 4 is picked
                     break;
-
                 default://if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again
                     option = 0;
                     break;
             }//end of switch
-            
+
         }//end of while loop
         menu();//puts the method in a loop even after selection until exit
 
     }//end of menu method
 
     private static void getName() {
-        System.out.println("Please input your name");
-        name = sc.next();
+        System.out.println("Please input your first name");
+        firstName = sc.next();
+        System.out.println("Please enter your last name");
+        lastName = sc.next();
     }
 
     private static void rectangleVolume() {
@@ -75,7 +73,7 @@ public class Main {
 
         poolVolume = (deepDepth + shallowDepth) * width * length / 2;//pool volume formula
         System.out.println(" \n"
-                + name + " The measurements you have entered for the rectangular pool are \n"
+                + firstName + " " + lastName + " The measurements you have entered for the rectangular pool are \n"
                 + "Shallow Depth: " + shallowDepth + "m \n"
                 + "Deep Depth: " + deepDepth + "m \n"
                 + "Width: " + width + "m \n"
@@ -88,10 +86,17 @@ public class Main {
 
     private static void rectangleInternalSurfaceArea() {
 
-        internalSurfaceArea = length * width * 1.6;//Works out the internal surface area
-        System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2 \n"
+        floorArea = width * length; //total Floor SQM
+        shallowEnd = width * shallowDepth; //Total Shallow End Wall
+        deepEnd = width * deepDepth; //Total Deep End wall
+        sideHeightEqual = (shallowDepth + deepDepth) / 2; //Calculate side height average
+        sideHeight1 = sideHeightEqual * length; //Side 1 sqm calculation
+        sideHeight2 = sideHeightEqual * length; //Side 2 sqm calculation
+        internalSurfaceArea = sideHeight1 + sideHeight2 + floorArea + shallowEnd + deepEnd; //Total Area
+
+        System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
-        
+
     }//End of rectangleInternalSurfaceArea method
 
     private static void cylinderVolume() {
@@ -105,7 +110,7 @@ public class Main {
         radius = diameter / 2;
         poolVolume = PI * radius * radius * averageDepth;//formula for circular pool volume
 
-        System.out.println(name + " The measurements you have entered for the circular pool are \n"
+        System.out.println(firstName + " " + lastName + " The measurements you have entered for the circular pool are \n"
                 + "Diameter: " + diameter + "m \n"
                 + "Shallow depth: " + shallowDepth + "m \n"
                 + "Deep depth:" + deepDepth + "m \n"
