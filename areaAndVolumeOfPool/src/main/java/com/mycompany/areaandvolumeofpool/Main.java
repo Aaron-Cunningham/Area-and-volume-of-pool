@@ -20,10 +20,9 @@ public class Main {
     private static void menu() {
 
         option = 0;
-
+        getName();//Get the name of the user
         while (option == 0) {
             System.out.println("Welcome to pool calculator");
-            getName();//Get the name of the user
 
             System.out.println("Select 1 to re-enter name \n"
                     + "Select 2 for Rectangular pool \n"
