@@ -18,9 +18,7 @@ public class Main {
     }
 
     private static void menu() {
-        
-        
-        getName();
+      getName();
         option = 0;
         //getName();//Get the name of the user
         while (option == 0) {
@@ -54,9 +52,9 @@ public class Main {
                     option = 0;
                     break;
             }//end of switch
-            menu();//puts the method in a loop even after selection until exit
+            
         }//end of while loop
-        
+        menu();//puts the method in a loop even after selection until exit
 
     }//end of menu method
 
