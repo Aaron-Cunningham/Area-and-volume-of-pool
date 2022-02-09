@@ -75,7 +75,7 @@ public class Main {
 
         poolVolume = (deepDepth + shallowDepth) * width * length / 2;//pool volume formula
         System.out.println(" \n"
-                + name + " The measurements you have entered for the pool are \n"
+                + name + " The measurements you have entered for the rectangular pool are \n"
                 + "Shallow Depth: " + shallowDepth + "m \n"
                 + "Deep Depth: " + deepDepth + "m \n"
                 + "Width: " + width + "m \n"
@@ -105,7 +105,7 @@ public class Main {
         radius = diameter / 2;
         poolVolume = PI * radius * radius * averageDepth;//formula for circular pool volume
 
-        System.out.println(name + " The measurements you have entered for the pool are \n"
+        System.out.println(name + " The measurements you have entered for the circular pool are \n"
                 + "Diameter: " + diameter + "m \n"
                 + "Shallow depth: " + shallowDepth + "m \n"
                 + "Deep depth:" + deepDepth + "m \n"
