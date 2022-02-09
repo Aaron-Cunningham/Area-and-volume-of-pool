@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         getName();
         menu();
-
+        
     }
 
     private static void menu() {
@@ -120,9 +120,15 @@ public class Main {
     }//End of cylinderVolume method
 
     private static void cylinderInternalSurfaceArea() {
-        internalSurfaceArea = diameter * diameter * 1.65;//formula for cylinder internal surface area
-        System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
+    
+        
+        
+        
+        internalSurfaceArea = (PI * 2) * (radius * radius) + (2 * PI) * (radius * averageDepth);
+        
+                System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
     }//End of cylinderInternalSurfaceArea method
-
+    
+   
 }
