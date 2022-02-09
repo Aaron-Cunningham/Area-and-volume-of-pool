@@ -31,23 +31,23 @@ public class Main {
 
             option = sc.nextInt();
             if (option == 1) {
-                getName();
+                getName();//This method will run if option1 is picked
             }//end of if statement
             switch (option) {
                 case 2:
-                    rectangleVolume();
+                    rectangleVolume();//These two methods will run if opetion 2 is picked
                     rectangleInternalSurfaceArea();
                     break;
                 case 3:
-                    cylinderVolume();
+                    cylinderVolume();//These two methods will run if opetion 3 is picked
                     cylinderInternalSurfaceArea();
                     break;
                 case 4:
                     System.out.println("You've now exited the program");
-                    System.exit(0);
+                    System.exit(0);//This method will run if opetion 4 is picked
                     break;
 
-                default:
+                default://if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again
                     option = 0;
                     break;
             }//end of switch
@@ -65,7 +65,7 @@ public class Main {
 
     private static void rectangleVolume() {
         System.out.println("Input shallow depth of the pool in meters");
-        shallowDepth = sc.nextDouble();
+        shallowDepth = sc.nextDouble();//allowing user to input a double number to save as shallowDepth
         System.out.println("Input deep depth of the pool in meter");
         deepDepth = sc.nextDouble();
         System.out.println("Input the width of the pool meter");
@@ -73,7 +73,7 @@ public class Main {
         System.out.println("Input the length of the pool meter");
         length = sc.nextDouble();
 
-        poolVolume = (deepDepth + shallowDepth) * width * length / 2;
+        poolVolume = (deepDepth + shallowDepth) * width * length / 2;//pool volume formula
         System.out.println(" \n"
                 + name + " The measurements you have entered for the pool are \n"
                 + "Shallow Depth: " + shallowDepth + "m \n"
@@ -84,7 +84,7 @@ public class Main {
                 + "The volume of the pool and interior surface area is \n"
                 + "Volume: " + poolVolume + "m\u00B3");
 
-    }
+    }//End of rectangleVolume method
 
     private static void rectangleInternalSurfaceArea() {
 
@@ -92,9 +92,7 @@ public class Main {
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2 \n"
                 + " ");
         
-        
-
-    }
+    }//End of rectangleInternalSurfaceArea method
 
     private static void cylinderVolume() {
         System.out.println("Enter diameter of the pool in meters");
@@ -105,7 +103,7 @@ public class Main {
         deepDepth = sc.nextDouble();
         averageDepth = (shallowDepth + deepDepth) / 2;
         radius = diameter / 2;
-        poolVolume = PI * radius * radius * averageDepth;
+        poolVolume = PI * radius * radius * averageDepth;//formula for circular pool volume
 
         System.out.println(name + " The measurements you have entered for the pool are \n"
                 + "Diameter: " + diameter + "m \n"
@@ -114,12 +112,12 @@ public class Main {
                 + "\n"
                 + "The Volume for the pool and required internal surface area are \n"
                 + "Volume: " + poolVolume + "m\u00B3");
-    }
+    }//End of cylinderVolume method
 
     private static void cylinderInternalSurfaceArea() {
-        internalSurfaceArea = diameter * diameter * 1.65;
+        internalSurfaceArea = diameter * diameter * 1.65;//formula for cylinder internal surface area
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
-    }
+    }//End of cylinderInternalSurfaceArea method
 
 }
