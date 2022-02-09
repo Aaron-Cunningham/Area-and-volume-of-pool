@@ -18,12 +18,15 @@ public class Main {
     }
 
     private static void menu() {
-
+        
+        
+        getName();
         option = 0;
-        getName();//Get the name of the user
+        //getName();//Get the name of the user
         while (option == 0) {
+            
             System.out.println("Welcome to pool calculator");
-
+            
             System.out.println("Select 1 to re-enter name \n"
                     + "Select 2 for Rectangular pool \n"
                     + "Select 3 for Cylinderical pool\n"
@@ -31,7 +34,7 @@ public class Main {
 
             option = sc.nextInt();
             if (option == 1) {
-                getName();//This method will run if option1 is picked
+                menu();//This method will run if option1 is picked
             }//end of if statement
             switch (option) {
                 case 2:
@@ -51,16 +54,15 @@ public class Main {
                     option = 0;
                     break;
             }//end of switch
-
+            menu();//puts the method in a loop even after selection until exit
         }//end of while loop
-
-        menu();//puts the method in a loop even after selection until exit
+        
 
     }//end of menu method
 
     private static void getName() {
         System.out.println("Please input your name");
-        name = sc.nextLine();
+        name = sc.next();
     }
 
     private static void rectangleVolume() {
