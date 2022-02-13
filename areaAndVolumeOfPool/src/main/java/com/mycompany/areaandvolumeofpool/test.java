@@ -1,9 +1,19 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.areaandvolumeofpool;
 
+import static com.mycompany.areaandvolumeofpool.test.menu;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+/**
+ *
+ * @author aaroncunningham
+ */
+public class test {
+   
 
     private static final double PI = 3.14;
     private static Scanner sc = new Scanner(System.in);//input scanner
@@ -11,16 +21,12 @@ public class Main {
     private static String firstName, lastName;//name of person
     private static int option;//menu option
 
-    public static void main(String[] args) {
-        getName();
-        menu();
-
-    }
-
-    private static void menu() {
+    public static void menu() {
 
         option = 0;
-
+        
+      
+        
         while (option == 0) {
             try {
                 System.out.println("Welcome to pool calculator");
@@ -30,39 +36,41 @@ public class Main {
                                        Select 3 for Cylinderical pool
                                        Select 4 to Exit""");
                 option = sc.nextInt();
+                
             } catch (Exception e) {
                 System.out.println("You can only input a number, re-run the program and try again");
-                System.exit(0);
+                
             }
 
-            if (option == 1) {
-                getName();//This method will run if option1 is picked
-            }//end of if statement
+        }
+        
+        if (option == 1) {
+            getName();//This method will run if option1 is picked
+        }//end of if statement
 
-            switch (option) {
-                case 2:
-                    rectangleVolume();//These two methods will run if opetion 2 is picked
-                    rectangleInternalSurfaceArea();
-                    break;
-                case 3:
-                    cylinderVolume();//These two methods will run if opetion 3 is picked
-                    cylinderInternalSurfaceArea();
-                    break;
-                case 4:
-                    System.out.println("You've now exited the program");
-                    System.exit(0);//This method will run if opetion 4 is picked
-                    break;
-                default://if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again
-                    option = 0;
-                    break;
-            }//end of switch
+        switch (option) {
+            case 2:
+                rectangleVolume();//These two methods will run if opetion 2 is picked
+                rectangleInternalSurfaceArea();
+                break;
+            case 3:
+                cylinderVolume();//These two methods will run if opetion 3 is picked
+                cylinderInternalSurfaceArea();
+                break;
+            case 4:
+                System.out.println("You've now exited the program");
+                System.exit(0);//This method will run if opetion 4 is picked
+                break;
+            default://if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again
+                option = 0;
+                break;
+        }//end of switch
 
-        }//end of while loop
         menu();//puts the method in a loop even after selection until exit
+    }//end of while loop
 
-    }//end of menu method
-
-    private static void getName() {
+    //end of menu method
+    public static void getName() {
 
         System.out.println("Please input your first name");
         firstName = sc.next();
@@ -71,15 +79,19 @@ public class Main {
     }
 
     private static void rectangleVolume() {
-        System.out.println("Input shallow depth of the pool in meters");
-        shallowDepth = sc.nextDouble();//allowing user to input a double number to save as shallowDepth
-        System.out.println("Input deep depth of the pool in meter");
-        deepDepth = sc.nextDouble();
-        System.out.println("Input the width of the pool meter");
-        width = sc.nextDouble();
-        System.out.println("Input the length of the pool meter");
-        length = sc.nextDouble();
 
+        
+            System.out.println("Input shallow depth of the pool in meters");
+            shallowDepth = sc.nextDouble();//allowing user to input a double number to save as shallowDepth
+            System.out.println("Input deep depth of the pool in meter");
+            deepDepth = sc.nextDouble();
+            System.out.println("Input the width of the pool meter");
+            width = sc.nextDouble();
+            System.out.println("Input the length of the pool meter");
+            length = sc.nextDouble();
+        
+ 
+        
         poolVolume = (deepDepth + shallowDepth) * width * length / 2;//pool volume formula
         System.out.println(" \n"
                 + firstName + " " + lastName + " The measurements you have entered for the rectangular pool are \n"
@@ -136,13 +148,37 @@ public class Main {
                 + " ");
     }//End of cylinderInternalSurfaceArea method
 
+    /*while(true){
+            try {
+                return sc.nextInt();
+            } catch (InputMismatchException e) {
+                
+                System.out.print("That’s not "
+                        + "an integer. Try again: ");
+                sc.next();
+            }*/
+    public static void menuT() {
+        int optionT = 0;
+
+        while (optionT == 0) {
+            try {
+                System.out.println("Welcome to pool calculator");
+                System.out.println("""
+                                       Select 1 to re-enter name 
+                                       Select 2 for Rectangular pool 
+                                       Select 3 for Cylinderical pool
+                                       Select 4 to Exit""");
+                optionT = sc.nextInt();
+            } catch (Exception e) {
+                System.out.println("Input a number only");
+
+            }
+            break;
+        }
+
+    }
+
+    private static Scanner nextLine() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
-
-/*while (option == 0) {
-            System.out.println("Welcome to pool calculator");
-            System.out.println("Select 1 to re-enter name \n"
-                    + "Select 2 for Rectangular pool \n"
-                    + "Select 3 for Cylinderical pool\n"
-                    + "Select 4 to Exit");
-
-            option = sc.nextInt();*/
