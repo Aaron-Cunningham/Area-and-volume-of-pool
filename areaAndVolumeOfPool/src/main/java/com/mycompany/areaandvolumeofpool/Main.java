@@ -12,8 +12,8 @@ public class Main {
     private static int option;//menu option
 
     public static void main(String[] args) {
-
-        menu();
+        test.getName();
+        test.menu();
 
     }
 
@@ -59,7 +59,6 @@ public class Main {
                     break;
             }//end of switch
 
-            
             menu();//puts the method in a loop even after selection until exit
         } while (option != 0);
         System.out.println(option);
@@ -71,6 +70,9 @@ public class Main {
         firstName = sc.next();
         System.out.println("Please enter your last name");
         lastName = sc.next();
+
+        System.out.println("You can only input letters, Please try again");
+
     }
 
     private static void rectangleVolume() {
@@ -138,6 +140,11 @@ public class Main {
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
     }//End of cylinderInternalSurfaceArea method
+
+    private static void outPutMethod() {
+        getName();
+        menu();
+    }
 
 }
 
