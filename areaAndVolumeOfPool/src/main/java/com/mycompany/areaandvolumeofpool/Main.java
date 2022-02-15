@@ -12,28 +12,29 @@ public class Main {
     private static int option;//menu option
 
     public static void main(String[] args) {
-        getName();
+
         menu();
 
     }
 
     private static void menu() {
-
         option = 0;
 
-        while (option == 0) {
-            try {
-                System.out.println("Welcome to pool calculator");
-                System.out.println("""
+        do {
+            System.out.println("Welcome to pool calculator");
+            System.out.println("""
                                        Select 1 to re-enter name 
                                        Select 2 for Rectangular pool 
                                        Select 3 for Cylinderical pool
                                        Select 4 to Exit""");
-                option = sc.nextInt();
-            } catch (Exception e) {
+
+            while (!sc.hasNextInt()) {
+
                 System.out.println("You can only input a number, re-run the program and try again");
-                System.exit(0);
+
+                sc.next();
             }
+            option = sc.nextInt();
 
             if (option == 1) {
                 getName();//This method will run if option1 is picked
@@ -50,6 +51,7 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("You've now exited the program");
+
                     System.exit(0);//This method will run if opetion 4 is picked
                     break;
                 default://if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again
@@ -57,9 +59,10 @@ public class Main {
                     break;
             }//end of switch
 
-        }//end of while loop
-        menu();//puts the method in a loop even after selection until exit
-
+            
+            menu();//puts the method in a loop even after selection until exit
+        } while (option != 0);
+        System.out.println(option);
     }//end of menu method
 
     private static void getName() {
