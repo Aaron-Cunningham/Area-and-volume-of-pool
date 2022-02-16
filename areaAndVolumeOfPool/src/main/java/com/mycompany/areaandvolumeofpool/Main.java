@@ -1,6 +1,5 @@
 package com.mycompany.areaandvolumeofpool;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -12,12 +11,13 @@ public class Main {
     private static int option;//menu option
 
     public static void main(String[] args) {
-        test.getName();
-        test.menu();
+        getName();
+        menu();
 
     }
 
     private static void menu() {
+
         option = 0;
 
         do {
@@ -30,7 +30,8 @@ public class Main {
 
             while (!sc.hasNextInt()) {
 
-                System.out.println("You can only input a number, re-run the program and try again");
+                System.out.println("You can only input a number");
+                
 
                 sc.next();
             }
@@ -44,6 +45,7 @@ public class Main {
                 case 2:
                     rectangleVolume();//These two methods will run if opetion 2 is picked
                     rectangleInternalSurfaceArea();
+
                     break;
                 case 3:
                     cylinderVolume();//These two methods will run if opetion 3 is picked
@@ -51,7 +53,6 @@ public class Main {
                     break;
                 case 4:
                     System.out.println("You've now exited the program");
-
                     System.exit(0);//This method will run if opetion 4 is picked
                     break;
                 default://if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again
@@ -66,12 +67,30 @@ public class Main {
 
     private static void getName() {
 
-        System.out.println("Please input your first name");
-        firstName = sc.next();
-        System.out.println("Please enter your last name");
-        lastName = sc.next();
+        System.out.println("Enter your first name");
+        while (true) {
+            firstName = sc.nextLine();
 
-        System.out.println("You can only input letters, Please try again");
+            if (!firstName.matches("[a-zA-Z]+")) {
+                System.out.println("Letters only!");
+                continue;
+            } else {
+                System.out.println("Enter your second name");
+                break;
+            }
+        }
+
+        while (true) {
+            lastName = sc.nextLine();
+
+            if (!lastName.matches("[a-zA-Z]+")) {
+                System.out.println("Letters only!");
+                continue;
+            } else {
+                System.out.println("Hello " + firstName + " " + lastName);
+                break;
+            }
+        }
 
     }
 
@@ -139,20 +158,7 @@ public class Main {
 
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
+
     }//End of cylinderInternalSurfaceArea method
 
-    private static void outPutMethod() {
-        getName();
-        menu();
-    }
-
 }
-
-/*while (option == 0) {
-            System.out.println("Welcome to pool calculator");
-            System.out.println("Select 1 to re-enter name \n"
-                    + "Select 2 for Rectangular pool \n"
-                    + "Select 3 for Cylinderical pool\n"
-                    + "Select 4 to Exit");
-
-            option = sc.nextInt();*/

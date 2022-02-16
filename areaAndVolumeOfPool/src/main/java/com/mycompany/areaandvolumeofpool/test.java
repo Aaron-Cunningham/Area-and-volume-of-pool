@@ -35,7 +35,7 @@ public class test {
             while (!sc.hasNextInt()) {
 
                 System.out.println("You can only input a number");
-                
+
                 sc.next();
             }
             option = sc.nextInt();
