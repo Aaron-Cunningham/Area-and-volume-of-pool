@@ -19,7 +19,8 @@ public class Main {
     private static void menu() {
 
         option = 0;
-
+        
+        /* The do while is asking for user input, but only accepting numbers*/
         do {
             System.out.println("Welcome to pool calculator");
             System.out.println("""
@@ -31,9 +32,9 @@ public class Main {
             while (!sc.hasNextInt()) {
 
                 System.out.println("You can only input a number");
-                
 
                 sc.next();
+
             }
             option = sc.nextInt();
 
@@ -43,19 +44,24 @@ public class Main {
 
             switch (option) {
                 case 2:
-                    rectangleVolume();//These two methods will run if opetion 2 is picked
+                    /*These two methods will run if opetion 2 is picked*/
+                    rectangleVolume();
                     rectangleInternalSurfaceArea();
 
                     break;
                 case 3:
-                    cylinderVolume();//These two methods will run if opetion 3 is picked
+                    /*These two methods will run if opetion 3 is picked*/
+                    cylinderVolume();
                     cylinderInternalSurfaceArea();
                     break;
                 case 4:
+                    /*This methods will run if opetion 4 is picked*/
                     System.out.println("You've now exited the program");
-                    System.exit(0);//This method will run if opetion 4 is picked
+                    System.exit(0);
                     break;
-                default://if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again
+
+                /*if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again*/
+                default:
                     option = 0;
                     break;
             }//end of switch
@@ -64,7 +70,8 @@ public class Main {
         } while (option != 0);
         System.out.println(option);
     }//end of menu method
-
+    
+    /*This method uses a while loop and if statement to allow only letters to be entered*/
     private static void getName() {
 
         System.out.println("Enter your first name");
@@ -85,14 +92,13 @@ public class Main {
 
             if (!lastName.matches("[a-zA-Z]+")) {
                 System.out.println("Letters only!");
-                continue;
             } else {
                 System.out.println("Hello " + firstName + " " + lastName);
                 break;
             }
         }
 
-    }
+    }//end of getName method
 
     private static void rectangleVolume() {
         System.out.println("Input shallow depth of the pool in meters");

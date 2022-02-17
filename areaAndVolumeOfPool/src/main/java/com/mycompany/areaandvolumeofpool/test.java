@@ -5,7 +5,6 @@
 package com.mycompany.areaandvolumeofpool;
 
 import static com.mycompany.areaandvolumeofpool.test.menu;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -25,6 +24,7 @@ public class test {
         option = 0;
 
         do {
+
             System.out.println("Welcome to pool calculator");
             System.out.println("""
                                        Select 1 to re-enter name 
