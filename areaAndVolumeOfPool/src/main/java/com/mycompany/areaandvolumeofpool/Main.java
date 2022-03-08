@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     private static final double PI = 3.14;
-    private static Scanner sc = new Scanner(System.in);//input scanner
-    private static double length, width, radius, sideHeightEqual, floorArea, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth, hypDepth, hypotenuse;//variables for program
+    private static final Scanner sc = new Scanner(System.in);//input scanner
+    private static double length, width, radius, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth, hypDepth, hypotenuse;//variables for program
     private static String firstName, lastName;//name of person
     private static int option;//menu option
 
@@ -19,7 +19,7 @@ public class Main {
     private static void menu() {
 
         option = 0;
-        
+
         /* The do while is asking for user input, but only accepting numbers*/
         do {
             System.out.println("Welcome to pool calculator");
@@ -70,7 +70,7 @@ public class Main {
         } while (option != 0);
         System.out.println(option);
     }//end of menu method
-    
+
     /*This method uses a while loop and if statement to allow only letters to be entered*/
     private static void getName() {
 
@@ -124,18 +124,9 @@ public class Main {
     }//End of rectangleVolume method
 
     private static void rectangleInternalSurfaceArea() {
-        
-        
+
         hypDepth = deepEnd - shallowEnd;
-        hypotenuse = Math.sqrt((Math.pow(length,2)) + (Math.pow( hypDepth, 2)));
-        //floorArea = width * length; //total Floor SQM
-        //shallowEnd = width * shallowDepth; //Total Shallow End Wall
-        //deepEnd = width * deepDepth; //Total Deep End wall
-        //sideHeightEqual = (shallowDepth + deepDepth) / 2; //Calculate side height average
-        //sideHeight1 = sideHeightEqual * length; //Side 1 sqm calculation
-        //sideHeight2 = sideHeightEqual * length; //Side 2 sqm calculation
-        //internalSurfaceArea = sideHeight1 + sideHeight2 + floorArea + deepEnd + shallowEnd; //Total Area
-       
+        hypotenuse = Math.sqrt((Math.pow(length, 2)) + (Math.pow(hypDepth, 2)));
         shallowEnd = width * shallowDepth;
         deepEnd = width * deepDepth;
         sideHeight1 = (shallowDepth + deepDepth) / 2 * length;
