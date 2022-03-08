@@ -6,7 +6,7 @@ public class Main {
 
     private static final double PI = 3.14;
     private static Scanner sc = new Scanner(System.in);//input scanner
-    private static double length, width, radius, sideHeightEqual, floorArea, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth;//variables for program
+    private static double length, width, radius, sideHeightEqual, floorArea, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth, hypDepth, hypotenuse;//variables for program
     private static String firstName, lastName;//name of person
     private static int option;//menu option
 
@@ -124,15 +124,23 @@ public class Main {
     }//End of rectangleVolume method
 
     private static void rectangleInternalSurfaceArea() {
-
-        floorArea = width * length; //total Floor SQM
-        shallowEnd = width * shallowDepth; //Total Shallow End Wall
-        deepEnd = width * deepDepth; //Total Deep End wall
-        sideHeightEqual = (shallowDepth + deepDepth) / 2; //Calculate side height average
-        sideHeight1 = sideHeightEqual * length; //Side 1 sqm calculation
-        sideHeight2 = sideHeightEqual * length; //Side 2 sqm calculation
-        internalSurfaceArea = sideHeight1 + sideHeight2 + floorArea + deepEnd + shallowEnd; //Total Area
-
+        
+        
+        hypDepth = deepEnd - shallowEnd;
+        hypotenuse = Math.sqrt((Math.pow(length,2)) + (Math.pow( hypDepth, 2)));
+        //floorArea = width * length; //total Floor SQM
+        //shallowEnd = width * shallowDepth; //Total Shallow End Wall
+        //deepEnd = width * deepDepth; //Total Deep End wall
+        //sideHeightEqual = (shallowDepth + deepDepth) / 2; //Calculate side height average
+        //sideHeight1 = sideHeightEqual * length; //Side 1 sqm calculation
+        //sideHeight2 = sideHeightEqual * length; //Side 2 sqm calculation
+        //internalSurfaceArea = sideHeight1 + sideHeight2 + floorArea + deepEnd + shallowEnd; //Total Area
+       
+        shallowEnd = width * shallowDepth;
+        deepEnd = width * deepDepth;
+        sideHeight1 = (shallowDepth + deepDepth) / 2 * length;
+        sideHeight2 = width * hypotenuse;
+        internalSurfaceArea = shallowEnd + deepEnd + (sideHeight1 * 2) + sideHeight2;
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
 
@@ -160,7 +168,7 @@ public class Main {
 
     private static void cylinderInternalSurfaceArea() {
 
-        internalSurfaceArea = (PI * 2) * (radius * radius) + (2 * PI) * (radius * averageDepth);
+        internalSurfaceArea = PI * (radius * radius) + (2 * PI) * (radius * averageDepth);
 
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
