@@ -1,19 +1,19 @@
 package com.mycompany.areaandvolumeofpool;
 
+
 import java.util.Scanner;
 
 public class Main {
 
     private static final double PI = 3.14;
     private static final Scanner sc = new Scanner(System.in);//input scanner
-    private static double length, width, radius, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth, hypDepth, hypotenuse;//variables for program
+    private static double length, width, radius, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth, hypDepth, hypotenuse, val;//variables for program
     private static String firstName, lastName;//name of person
     private static int option;//menu option
-
+    
+    
     public static void main(String[] args) {
-        getName();
-        menu();
- 
+       output();
         
     }
 
@@ -44,28 +44,25 @@ public class Main {
             }//end of if statement
 
             switch (option) {
-                case 2:
+                case 2 -> {
                     /*These two methods will run if opetion 2 is picked*/
                     rectangleVolume();
                     rectangleInternalSurfaceArea();
-
-                    break;
-                case 3:
+                }
+                case 3 -> {
                     /*These two methods will run if opetion 3 is picked*/
                     cylinderVolume();
                     cylinderInternalSurfaceArea();
-                    break;
-                case 4:
+                }
+                case 4 -> {
                     /*This methods will run if opetion 4 is picked*/
                     System.out.println("You've now exited the program");
                     System.exit(0);
-                    break;
+                }
 
-                /*if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again*/
-                default:
-                    option = 0;
-                    break;
-            }//end of switch
+                default -> option = 0;
+            }
+            /*if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again*/ //end of switch
 
             menu();//puts the method in a loop even after selection until exit
         } while (option != 0);
@@ -102,8 +99,9 @@ public class Main {
     }//end of getName method
 
     private static void rectangleVolume() {
+        
         System.out.println("Input shallow depth of the pool in meters");
-        shallowDepth = sc.nextDouble();//allowing user to input a double number to save as shallowDepth
+        shallowDepth = sc.nextDouble();
         System.out.println("Input deep depth of the pool in meter");
         deepDepth = sc.nextDouble();
         System.out.println("Input the width of the pool meter");
@@ -121,7 +119,8 @@ public class Main {
                 + "\n"
                 + "The volume of the pool and interior surface area is \n"
                 + "Volume: " + poolVolume + "m\u00B3");
-
+            
+        
     }//End of rectangleVolume method
 
     private static void rectangleInternalSurfaceArea() {
@@ -166,5 +165,9 @@ public class Main {
                 + " ");
 
     }//End of cylinderInternalSurfaceArea method
-
+    
+    private static void output(){
+        getName();
+        menu();
+    }
 }
