@@ -1,6 +1,5 @@
 package com.mycompany.areaandvolumeofpool;
 
-
 import java.util.Scanner;
 
 public class Main {
@@ -10,11 +9,10 @@ public class Main {
     private static double length, width, radius, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth, hypDepth, hypotenuse, val;//variables for program
     private static String firstName, lastName;//name of person
     private static int option;//menu option
-    
-    
+
     public static void main(String[] args) {
-       output();
-        
+        output();
+
     }
 
     private static void menu() {
@@ -60,7 +58,8 @@ public class Main {
                     System.exit(0);
                 }
 
-                default -> option = 0;
+                default ->
+                    option = 0;
             }
             /*if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again*/ //end of switch
 
@@ -99,7 +98,7 @@ public class Main {
     }//end of getName method
 
     private static void rectangleVolume() {
-        
+
         System.out.println("Input shallow depth of the pool in meters");
         shallowDepth = sc.nextDouble();
         System.out.println("Input deep depth of the pool in meter");
@@ -119,8 +118,7 @@ public class Main {
                 + "\n"
                 + "The volume of the pool and interior surface area is \n"
                 + "Volume: " + poolVolume + "m\u00B3");
-            
-        
+
     }//End of rectangleVolume method
 
     private static void rectangleInternalSurfaceArea() {
@@ -165,8 +163,8 @@ public class Main {
                 + " ");
 
     }//End of cylinderInternalSurfaceArea method
-    
-    private static void output(){
+
+    private static void output() {
         getName();
         menu();
     }
