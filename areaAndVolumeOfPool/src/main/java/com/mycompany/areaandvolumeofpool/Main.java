@@ -54,7 +54,7 @@ public class Main {
                 }
                 case 4 -> {
                     /*This methods will run if opetion 4 is picked*/
-                    System.out.println("You've now exited the program");
+                    System.out.println("You've now exited the program!");
                     System.exit(0);
                 }
 
