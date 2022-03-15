@@ -4,7 +4,7 @@
  */
 package com.mycompany.areaandvolumeofpool;
 
-import static com.mycompany.areaandvolumeofpool.test.menu;
+
 import java.util.Scanner;
 
 /**
@@ -14,17 +14,18 @@ import java.util.Scanner;
 public class test {
 
     private static final double PI = 3.14;
-    private static Scanner sc = new Scanner(System.in);//input scanner
-    private static double length, width, radius, sideHeightEqual, floorArea, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth;//variables for program
+    private static final Scanner sc = new Scanner(System.in);//input scanner
+    private static double length, width, radius, sideHeight1, sideHeight2, shallowEnd, deepEnd, shallowDepth, deepDepth, poolVolume, internalSurfaceArea, diameter, averageDepth, hypDepth, hypotenuse, val;//variables for program
     private static String firstName, lastName;//name of person
     private static int option;//menu option
 
-    public static void menu() {
+
+        private static void menu() {
 
         option = 0;
 
+        /* The do while is asking for user input, but only accepting numbers*/
         do {
-
             System.out.println("Welcome to pool calculator");
             System.out.println("""
                                        Select 1 to re-enter name 
@@ -37,6 +38,7 @@ public class test {
                 System.out.println("You can only input a number");
 
                 sc.next();
+
             }
             option = sc.nextInt();
 
@@ -45,32 +47,36 @@ public class test {
             }//end of if statement
 
             switch (option) {
-                case 2:
-                    rectangleVolume();//These two methods will run if opetion 2 is picked
+                case 2 -> {
+                    /*These two methods will run if opetion 2 is picked*/
+                    rectangleVolume();
                     rectangleInternalSurfaceArea();
-
-                    break;
-                case 3:
-                    cylinderVolume();//These two methods will run if opetion 3 is picked
+                }
+                case 3 -> {
+                    /*These two methods will run if opetion 3 is picked*/
+                    cylinderVolume();
                     cylinderInternalSurfaceArea();
-                    break;
-                case 4:
-                    System.out.println("You've now exited the program");
-                    System.exit(0);//This method will run if opetion 4 is picked
-                    break;
-                default://if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again
+                }
+                case 4 -> {
+                    /*This methods will run if opetion 4 is picked*/
+                    System.out.println("You've now exited the program!");
+                    System.exit(0);
+                }
+
+                default ->
                     option = 0;
-                    break;
-            }//end of switch
+            }
+            /*if any number apart from 1,2,3, or 4 is picked then it will default the loop to run again*/ //end of switch
 
             menu();//puts the method in a loop even after selection until exit
         } while (option != 0);
         System.out.println(option);
     }//end of menu method
 
-    public static void getName() {
+    /*This method uses a while loop and if statement to allow only letters to be entered*/
+    private static void getName() {
 
-        System.out.println("Enter your name");
+        System.out.println("Enter your first name");
         while (true) {
             firstName = sc.nextLine();
 
@@ -88,18 +94,18 @@ public class test {
 
             if (!lastName.matches("[a-zA-Z]+")) {
                 System.out.println("Letters only!");
-                continue;
             } else {
                 System.out.println("Hello " + firstName + " " + lastName);
                 break;
             }
         }
 
-    }
+    }//end of getName method
 
-    public static void rectangleVolume() {
+    private static void rectangleVolume() {
+
         System.out.println("Input shallow depth of the pool in meters");
-        shallowDepth = sc.nextDouble();//allowing user to input a double number to save as shallowDepth
+        shallowDepth = sc.nextDouble();
         System.out.println("Input deep depth of the pool in meter");
         deepDepth = sc.nextDouble();
         System.out.println("Input the width of the pool meter");
@@ -122,14 +128,13 @@ public class test {
 
     private static void rectangleInternalSurfaceArea() {
 
-        floorArea = width * length; //total Floor SQM
-        shallowEnd = width * shallowDepth; //Total Shallow End Wall
-        deepEnd = width * deepDepth; //Total Deep End wall
-        sideHeightEqual = (shallowDepth + deepDepth) / 2; //Calculate side height average
-        sideHeight1 = sideHeightEqual * length; //Side 1 sqm calculation
-        sideHeight2 = sideHeightEqual * length; //Side 2 sqm calculation
-        internalSurfaceArea = sideHeight1 + sideHeight2 + floorArea + deepEnd + shallowEnd; //Total Area
-
+        hypDepth = deepEnd - shallowEnd;
+        hypotenuse = Math.sqrt((Math.pow(length, 2)) + (Math.pow(hypDepth, 2)));
+        shallowEnd = width * shallowDepth;
+        deepEnd = width * deepDepth;
+        sideHeight1 = (shallowDepth + deepDepth) / 2 * length;
+        sideHeight2 = width * hypotenuse;
+        internalSurfaceArea = shallowEnd + deepEnd + (sideHeight1 * 2) + sideHeight2;
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
 
@@ -157,11 +162,15 @@ public class test {
 
     private static void cylinderInternalSurfaceArea() {
 
-        internalSurfaceArea = (PI * 2) * (radius * radius) + (2 * PI) * (radius * averageDepth);
+        internalSurfaceArea = PI * (radius * radius) + (2 * PI) * (radius * averageDepth);
 
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
                 + " ");
 
     }//End of cylinderInternalSurfaceArea method
 
+    private static void output() {
+        getName();
+        menu();
+    }
 }
