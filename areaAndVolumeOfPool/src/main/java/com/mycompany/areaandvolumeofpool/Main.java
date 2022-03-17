@@ -109,15 +109,16 @@ public class Main {
         length = sc.nextDouble();
 
         poolVolume = (deepDepth + shallowDepth) * width * length / 2;//pool volume formula
-        System.out.println(" \n"
+        System.out.println("+----------------------------------------------------------------------------------+ \n"
                 + firstName + " " + lastName + " The measurements you have entered for the rectangular pool are \n"
                 + "Shallow Depth: " + shallowDepth + "m \n"
                 + "Deep Depth: " + deepDepth + "m \n"
                 + "Width: " + width + "m \n"
                 + "Length: " + length + "m \n"
-                + "\n"
+                + "+----------------------------------------------------------------------------------+\n"
                 + "The volume of the pool and interior surface area is \n"
-                + "Volume: " + poolVolume + "m\u00B3");
+                + "\n"
+                + "Volume: " + poolVolume + "m\u00B3 \n");
 
     }//End of rectangleVolume method
 
@@ -131,7 +132,7 @@ public class Main {
         sideHeight2 = width * hypotenuse;
         internalSurfaceArea = shallowEnd + deepEnd + (sideHeight1 * 2) + sideHeight2;
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
-                + " ");
+                + "+----------------------------------------------------------------------------------+");
 
     }//End of rectangleInternalSurfaceArea method
 
@@ -146,13 +147,17 @@ public class Main {
         radius = diameter / 2;
         poolVolume = PI * radius * radius * averageDepth;//formula for circular pool volume
 
-        System.out.println(firstName + " " + lastName + " The measurements you have entered for the circular pool are \n"
+        System.out.println("+----------------------------------------------------------------------------------+ \n"
+                + firstName + " " + lastName + " The measurements you have entered for the circular pool are \n"
+                + "\n"
                 + "Diameter: " + diameter + "m \n"
                 + "Shallow depth: " + shallowDepth + "m \n"
                 + "Deep depth:" + deepDepth + "m \n"
-                + "\n"
+                + "+----------------------------------------------------------------------------------+ \n"
                 + "The Volume for the pool and required internal surface area are \n"
-                + "Volume: " + poolVolume + "m\u00B3");
+                + "\n"
+                + "Volume: " + poolVolume + "m\u00B3\n"
+                + " ");
     }//End of cylinderVolume method
 
     private static void cylinderInternalSurfaceArea() {
@@ -160,7 +165,7 @@ public class Main {
         internalSurfaceArea = PI * (radius * radius) + (2 * PI) * (radius * averageDepth);
 
         System.out.println("Internal surface area: " + internalSurfaceArea + "m\u00B2" + "\n"
-                + " ");
+                + "+----------------------------------------------------------------------------------+");
 
     }//End of cylinderInternalSurfaceArea method
 

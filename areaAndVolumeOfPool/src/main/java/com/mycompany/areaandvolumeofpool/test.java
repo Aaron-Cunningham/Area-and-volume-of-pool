@@ -114,7 +114,7 @@ public class test {
         length = sc.nextDouble();
 
         poolVolume = (deepDepth + shallowDepth) * width * length / 2;//pool volume formula
-        System.out.println(" \n"
+        System.out.println(" +------------------------------+\n"
                 + firstName + " " + lastName + " The measurements you have entered for the rectangular pool are \n"
                 + "Shallow Depth: " + shallowDepth + "m \n"
                 + "Deep Depth: " + deepDepth + "m \n"
@@ -122,7 +122,8 @@ public class test {
                 + "Length: " + length + "m \n"
                 + "\n"
                 + "The volume of the pool and interior surface area is \n"
-                + "Volume: " + poolVolume + "m\u00B3");
+                + "Volume: " + poolVolume + "m\u00B3"
+                        + "+------------------------------+");
 
     }//End of rectangleVolume method
 
